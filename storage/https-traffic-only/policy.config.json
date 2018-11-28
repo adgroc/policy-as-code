@@ -1,7 +1,7 @@
 {
     "config": {
         "policyName": {
-         "value": "testpolicy"
+         "value": "httpsTrafficOnlyPolicy"
        },
         "policyDisplayName": {
          "value": ""
@@ -10,7 +10,7 @@
          "value": ""
         },
        "assignmentName": {
-        "value": "testAssignment"
+        "value": "httpsTrafficOnlyAssignment"
        },
         "assignmentDisplayName": {
          "value": ""

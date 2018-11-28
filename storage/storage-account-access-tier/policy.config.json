@@ -1,1 +1,25 @@
-{}
+{
+    "config": {
+        "policyName": {
+         "value": "storageAccountAccessTierPolicy"
+       },
+        "policyDisplayName": {
+         "value": ""
+       },
+        "policyDescription": {
+         "value": ""
+        },
+       "assignmentName": {
+        "value": "storageAccountAccessTierAssignment"
+       },
+        "assignmentDisplayName": {
+         "value": ""
+       },
+        "assignmentDescription": {
+         "value": ""
+        },
+        "policySetName": {
+            "value": ""
+        }
+    }
+}
