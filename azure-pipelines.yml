@@ -1,8 +1,0 @@
-pool:
-  vmImage: 'vs2017-win2016'
-
-- task: AzurePowerShell@3
-  inputs:
-    targetType: 'filePath'
-    filePath: .\build.ps1
-    errorActionPreference: 'stop'
