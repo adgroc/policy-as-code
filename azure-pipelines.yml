@@ -6,7 +6,7 @@
 pool:
   vmImage: 'vs2017-win2016'
 
-- task: PowerShell@2
+- task: PowerShell@3
   inputs:
     targetType: 'filePath'
     filePath: .\build.ps1
