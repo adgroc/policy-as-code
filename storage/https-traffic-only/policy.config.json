@@ -1,1 +1,25 @@
-{}
+{
+    "config": {
+        "policyName": {
+         "value": "testpolicy"
+       },
+        "policyDisplayName": {
+         "value": ""
+       },
+        "policyDescription": {
+         "value": ""
+        },
+       "assignmentName": {
+        "value": "testAssignment"
+       },
+        "assignmentDisplayName": {
+         "value": ""
+       },
+        "assignmentDescription": {
+         "value": ""
+        },
+        "policySetName": {
+            "value": ""
+        }
+    }
+}
