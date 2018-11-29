@@ -64,7 +64,6 @@ foreach($parentDir in Get-ChildItem -Directory)
             $cmdletParameters += @{ManagementGroupName=$managementGroupName}
         }
 
-        Write-Warning ($cmdletParameters | Out-String)
         &New-AzureRmPolicyDefinition @cmdletParameters
 
         if ($managementGroupName)
@@ -124,7 +123,6 @@ foreach($parentDir in Get-ChildItem -Directory)
             $cmdletParameters += @{PolicySetDefinition=$policySetDefinition}
         }
 
-        Write-Warning ($cmdletParameters | Out-String)
         &New-AzureRmPolicyAssignment @cmdletParameters
     }
 }
