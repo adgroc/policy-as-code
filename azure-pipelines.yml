@@ -12,8 +12,9 @@ steps:
     Contents: |
      **/*
      !.git/**/*
-     !*.md
-     !*.yml
+     !**/*.md
+     !**/*.yml
+     !build.ps1
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
