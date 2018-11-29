@@ -3,6 +3,7 @@ param([Parameter(Mandatory=$true)][string] $rootDirectory,
       [string] $managementGroupName,
       [string] $resourceGroupName)
 
+# Set working directory to path specified by rootDirectory var
 Set-Location -Path $rootDirectory -PassThru
 
 if(!$subscriptionId -and !$managementGroupName)
