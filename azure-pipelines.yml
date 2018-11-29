@@ -5,3 +5,16 @@ queue:
 steps:
 - powershell: ./build.ps1
   displayName: 'PowerShell Script'
+- task: CopyFiles@2
+  displayName: 'Copy Files to $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+     **/*
+     !*.md
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Build Artifacts'
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: drop
