@@ -65,10 +65,10 @@ foreach($parentDir in Get-ChildItem -Directory)
             $cmdletParameters += @{ManagementGroupName=$managementGroupName}
         }
 
-        if ($policyParameters)
-        {
+        #if ($policyParameters)
+        #{
             $cmdletParameters += @{Parameter=$paramsFile}
-        }
+        #}
 
         Write-Warning ($cmdletParameters | Out-String)
         &New-AzureRmPolicyDefinition @cmdletParameters
@@ -130,10 +130,10 @@ foreach($parentDir in Get-ChildItem -Directory)
             $cmdletParameters += @{PolicySetDefinition=$policySetDefinition}
         }
 
-        if ($policyParameters)
-        {
+        #if ($policyParameters)
+        #{
             $cmdletParameters += @{PolicyParameter=$paramsFile}
-        }
+        #}
 
         Write-Warning ($cmdletParameters | Out-String)
         &New-AzureRmPolicyAssignment @cmdletParameters
