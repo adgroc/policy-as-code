@@ -27,7 +27,7 @@ if ($managementGroupName -and (-not $azureRMModule -or $azureRMModule.version -l
     exit 1
 }
 
-foreach($parentDir in Get-ChildItem -Directory)
+foreach($parentDir in Get-ChildItem -Path "$(System.DefaultWorkingDirectory)/_policy-as-code-ci-ps/drop" -Directory)
 {
     foreach($childDir in Get-ChildItem -Path $parentDir -Directory)
     {
