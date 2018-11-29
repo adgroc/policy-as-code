@@ -32,7 +32,6 @@ foreach($parentDir in Get-ChildItem -Directory)
     foreach($childDir in Get-ChildItem -Path $parentDir -Directory)
     {
         $configFile = "$parentDir\$childDir\policy.config.json"
-        $paramsFile = "$parentDir\$childDir\policy.parameters.json"
         $rulesFile = "$parentDir\$childDir\policy.rules.json"
 
         $policyName  = (Get-Content $configFile | ConvertFrom-Json).config.policyName.value
@@ -64,11 +63,6 @@ foreach($parentDir in Get-ChildItem -Directory)
         {
             $cmdletParameters += @{ManagementGroupName=$managementGroupName}
         }
-
-        #if ($policyParameters)
-        #{
-            $cmdletParameters += @{Parameter=$paramsFile}
-        #}
 
         Write-Warning ($cmdletParameters | Out-String)
         &New-AzureRmPolicyDefinition @cmdletParameters
@@ -129,11 +123,6 @@ foreach($parentDir in Get-ChildItem -Directory)
 
             $cmdletParameters += @{PolicySetDefinition=$policySetDefinition}
         }
-
-        #if ($policyParameters)
-        #{
-            $cmdletParameters += @{PolicyParameter=$paramsFile}
-        #}
 
         Write-Warning ($cmdletParameters | Out-String)
         &New-AzureRmPolicyAssignment @cmdletParameters

@@ -11,11 +11,11 @@
             "allOf": [
                {
                   "field": "Microsoft.Sql/servers/firewallRules/startIpAddress",
-                  "equals": "[parameters('startIpAddress')]"
+                  "equals": "0.0.0.0"
                },
                {
                   "field": "Microsoft.Sql/servers/firewallRules/endIpAddress",
-                  "equals": "[parameters('endIpAddress')]"
+                  "equals": "255.255.255.255"
                }
             ]
          }

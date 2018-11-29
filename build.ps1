@@ -7,11 +7,6 @@ foreach($parentDir in Get-ChildItem -Directory)
             Throw "Required file policy.config.json does not exist in $childDir."
         }
 
-        if(!(Test-Path $parentDir\$childDir\policy.parameters.json))
-        {
-            Throw "Required file policy.config.json does not exist in $childDir."
-        }
-
         if(!(Test-Path $parentDir\$childDir\policy.rules.json))
         {
             Throw "Required file policy.config.json does not exist in $childDir."
