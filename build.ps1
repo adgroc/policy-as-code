@@ -4,20 +4,17 @@ foreach($parentDir in Get-ChildItem -Directory)
     {
         if(!(Test-Path $parentDir\$childDir\policy.config.json))
         {
-            Write-Error "Required file policy.config.json does not exist in $childDir."
-            exit 1
+            Throw "Required file policy.config.json does not exist in $childDir."
         }
 
         if(!(Test-Path $parentDir\$childDir\policy.parameters.json))
         {
-            Write-Error "Required file policy.config.json does not exist in $childDir."
-            exit 1
+            Throw "Required file policy.config.json does not exist in $childDir."
         }
 
         if(!(Test-Path $parentDir\$childDir\policy.rules.json))
         {
-            Write-Error "Required file policy.config.json does not exist in $childDir."
-            exit 1
+            Throw "Required file policy.config.json does not exist in $childDir."
         }
 
         $configFile = "$parentDir\$childDir\policy.config.json"
@@ -26,8 +23,7 @@ foreach($parentDir in Get-ChildItem -Directory)
         
         if(!$policyName)
         {
-            Write-Error "Required parameter policyName not specified in $configFile."
-            exit 1
+            Throw "Required parameter policyName not specified in $configFile."
         }
 
         $policyDisplayName = (Get-Content $configFile | ConvertFrom-Json).config.policyDisplayName.value
@@ -48,8 +44,7 @@ foreach($parentDir in Get-ChildItem -Directory)
 
         if(!$assignmentName)
         {
-            Write-Error "Required parameter assignmentName not specified in $configFile."
-            exit 1
+            Throw "Required parameter assignmentName not specified in $configFile."
         }
 
         $assignmentDisplayName = (Get-Content $configFile | ConvertFrom-Json).config.assignmentDisplayName.value

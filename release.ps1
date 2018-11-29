@@ -1,30 +1,27 @@
-param([string] $subscriptionId,
+param([Parameter(Mandatory=$true)][string] $rootDirectory,
+      [string] $subscriptionId,
       [string] $managementGroupName,
       [string] $resourceGroupName)
 
 if(!$subscriptionId -and !$managementGroupName)
 {
-    Write-Error "Unable to create policy: `$(SubscriptionId) '$subscriptionId' or `$(ManagementGroupName) '$managementGroupName' were not provided. Either may be provided, but not both."
-    exit 1
+    Throw "Unable to create policy: `$(SubscriptionId) '$subscriptionId' or `$(ManagementGroupName) '$managementGroupName' were not provided. Either may be provided, but not both."
 }
 
 if ($subscriptionId -and $managementGroupName)
 {
-    Write-Error "Unable to create policy: `$(SubscriptionId) '$subscriptionId' and `$(ManagementGroupName) '$managementGroupName' were both provided. Either may be provided, but not both."
-    exit 1
+    Throw "Unable to create policy: `$(SubscriptionId) '$subscriptionId' and `$(ManagementGroupName) '$managementGroupName' were both provided. Either may be provided, but not both."
 }
 
 if ($managementGroupName -and $resourceGroupName)
 {
-    Write-Error "Unable to create policy: `$(ManagementGroupName) '$managementGroupName' and `$(ResourceGroupName) '$resourceGroupName' were both provided. Either may be provided, but not both."
-    exit 1
+    Throw "Unable to create policy: `$(ManagementGroupName) '$managementGroupName' and `$(ResourceGroupName) '$resourceGroupName' were both provided. Either may be provided, but not both."
 }
 
 $azureRMModule = (Get-Module -Name AzureRM)
 if ($managementGroupName -and (-not $azureRMModule -or $azureRMModule.version -lt 6.4))
 {
-    Write-Error "For creating policy as management group, Azure PS installed version should be equal to or greater than 6.4"
-    exit 1
+    Throw "For creating policy as management group, Azure PS installed version should be equal to or greater than 6.4"
 }
 
 foreach($parentDir in Get-ChildItem -Path $(System.DefaultWorkingDirectory)"\_policy-as-code-ci-ps\drop" -Directory)
