@@ -70,6 +70,7 @@ foreach($parentDir in Get-ChildItem -Directory)
             $cmdletParameters += @{Parameter=$paramsFile}
         }
 
+        Write-Debug "cmdletParameters: " $cmdletParameters
         &New-AzureRmPolicyDefinition @cmdletParameters
 
         if ($managementGroupName)
@@ -134,7 +135,7 @@ foreach($parentDir in Get-ChildItem -Directory)
             $cmdletParameters += @{PolicyParameter=$paramsFile}
         }
 
-        Write-Host "cmdletParameters: " $cmdletParameters
+        Write-Debug "cmdletParameters: " $cmdletParameters
         &New-AzureRmPolicyAssignment @cmdletParameters
     }
 }
