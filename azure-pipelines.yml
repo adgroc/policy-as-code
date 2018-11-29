@@ -11,7 +11,7 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: |
      **/*
-     !*.md|*.yml|.git/**/*|build.ps1
+     !(*.md|*.yml|.git/**/*|build.ps1)
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
