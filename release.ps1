@@ -3,6 +3,8 @@ param([Parameter(Mandatory=$true)][string] $rootDirectory,
       [string] $managementGroupName,
       [string] $resourceGroupName)
 
+Set-Location -Path $rootDirectory -PassThru
+
 if(!$subscriptionId -and !$managementGroupName)
 {
     Throw "Unable to create policy: `$(SubscriptionId) '$subscriptionId' or `$(ManagementGroupName) '$managementGroupName' were not provided. Either may be provided, but not both."
@@ -24,7 +26,7 @@ if ($managementGroupName -and (-not $azureRMModule -or $azureRMModule.version -l
     Throw "For creating policy as management group, Azure PS installed version should be equal to or greater than 6.4"
 }
 
-foreach($parentDir in Get-ChildItem -Path $(System.DefaultWorkingDirectory)"\_policy-as-code-ci-ps\drop" -Directory)
+foreach($parentDir in Get-ChildItem -Directory)
 {
     foreach($childDir in Get-ChildItem -Path $parentDir -Directory)
     {
