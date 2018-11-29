@@ -134,6 +134,7 @@ foreach($parentDir in Get-ChildItem -Directory)
             $cmdletParameters += @{PolicyParameter=$paramsFile}
         }
 
+        Write-Host "cmdletParameters: " $cmdletParameters
         &New-AzureRmPolicyAssignment @cmdletParameters
     }
 }
