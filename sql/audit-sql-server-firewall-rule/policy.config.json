@@ -1,0 +1,25 @@
+{
+   "config": {
+       "policyName": {
+        "value": "sqlFireweallRulePolicy"
+      },
+       "policyDisplayName": {
+        "value": ""
+      },
+       "policyDescription": {
+        "value": ""
+       },
+      "assignmentName": {
+       "value": "sqlFirewallRuleAssignment"
+      },
+       "assignmentDisplayName": {
+        "value": ""
+      },
+       "assignmentDescription": {
+        "value": ""
+       },
+       "policySetName": {
+           "value": ""
+       }
+   }
+}
